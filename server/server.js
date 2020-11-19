@@ -8,6 +8,10 @@ import postRoutes from './routes/post.js';
 
 const app = express();
 
+app.get('/', (req, res) => {
+  return res.send('Hello to memories')
+})
+
 const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
