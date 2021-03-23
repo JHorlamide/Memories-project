@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import useStyles from "./style";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import useStyles from './style';
+import { useDispatch, useSelector } from 'react-redux';
 
 /* From Material UI */
-import { Button, Paper, TextField, Typography } from "@material-ui/core";
-import FileBase from "react-file-base64";
-import { createPost, updatePost } from "../../actions/posts";
+import { Button, Paper, TextField, Typography } from '@material-ui/core';
+import FileBase from 'react-file-base64';
+import { createPost, updatePost } from '../../actions/posts';
 
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
-    creator: "",
-    title: "",
-    tags: "",
-    message: "",
-    selectedFile: "",
+    creator: '',
+    title: '',
+    tags: '',
+    message: '',
+    selectedFile: '',
   });
 
   const classes = useStyles();
@@ -63,84 +63,84 @@ const Form = ({ currentId, setCurrentId }) => {
     setCurrentId(null);
 
     setPostData({
-      creator: "",
-      title: "",
-      tags: "",
-      message: "",
-      selectedFile: "",
+      creator: '',
+      title: '',
+      tags: '',
+      message: '',
+      selectedFile: '',
     });
   };
 
   return (
     <Paper className={classes.paper}>
       <form
-        autoComplete="off"
+        autoComplete='off'
         noValidate
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6">
-          {currentId ? "Editing" : "Creating"} a Memory
+        <Typography variant='h6'>
+          {currentId ? 'Editing' : 'Creating'} a Memory
         </Typography>
         {/* Creator */}
         <TextField
-          name="creator"
-          variant="outlined"
-          label="Creator"
+          name='creator'
+          variant='outlined'
+          label='Creator'
           fullWidth
           value={creator}
-          onChange={onChange}
+          onChange={(e) => onChange(e)}
         />
 
         {/* Title */}
         <TextField
-          name="title"
-          variant="outlined"
-          label="Title"
+          name='title'
+          variant='outlined'
+          label='Title'
           fullWidth
           value={title}
-          onChange={onChange}
+          onChange={(e) => onChange(e)}
         />
 
         {/* Message */}
         <TextField
-          name="message"
-          variant="outlined"
-          label="Message"
+          name='message'
+          variant='outlined'
+          label='Message'
           fullWidth
           value={message}
-          onChange={onChange}
+          onChange={(e) => onChange(e)}
         />
 
         {/* Tags */}
         <TextField
-          name="tags"
-          variant="outlined"
-          label="Tags"
+          name='tags'
+          variant='outlined'
+          label='Tags'
           fullWidth
           value={tags}
-          onChange={onChange}
+          onChange={(e) => onChange(e)}
         />
 
         <div className={classes.fileInput}>
-          <FileBase type="file" multiple={false} onDone={handleBase64} />
+          <FileBase type='file' multiple={false} onDone={handleBase64} />
         </div>
 
         <Button
           className={classes.buttonSubmit}
-          variant="contained"
-          color="primary"
-          size="large"
-          type="submit"
+          variant='contained'
+          color='primary'
+          size='large'
+          type='submit'
           fullWidth
         >
           Submit
         </Button>
         <Button
           className={classes.buttonSubmit}
-          variant="contained"
-          color="secondary"
-          size="large"
+          variant='contained'
+          color='secondary'
+          size='large'
           onClick={clearButtonHandler}
           fullWidth
         >
