@@ -3,23 +3,23 @@ import express from 'express';
 import cors from 'cors';
 
 /* Custom file */
-import connectDB from './database/db.js' 
+import connectDB from './database/db.js'
 import postRoutes from './routes/post.js';
 
 const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-app.use(bodyParser.json({ limit: '30mb', extended: true }));
-app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
+app.use(bodyParser.json({limit: '30mb', extended: true}));
+app.use(bodyParser.urlencoded({limit: '30mb', extended: true}));
 app.use(cors());
 app.use(express.json({extended: false}));
 
 app.get('/', (req, res) => {
-  return res.send('Hello to memories')
+    return res.send('Hello to memories')
 })
 
-/*Routes*/ 
+/*Routes*/
 app.use('/posts', postRoutes)
 
 /*** Connect Database ***/
@@ -27,5 +27,5 @@ connectDB()
 
 
 app.listen(PORT, () => {
-  console.log(`Server started on port${PORT}`)
+    console.log(`Server started on port${PORT}`)
 })
